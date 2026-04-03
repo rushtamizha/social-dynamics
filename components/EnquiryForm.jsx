@@ -18,6 +18,7 @@ const EnquiryForm = () => {
     "Social Media Marketing",
     "GMB Management",
     "WhatsApp Marketing",
+    "Ai Automations",
   ];
 
   const handleSendWhatsApp = (e) => {
