@@ -1,10 +1,8 @@
-
-
 "use client";
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Mail, ChevronRight } from "lucide-react"; // Swapped MessageCircle for Mail
+import { Menu, X, Mail, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -19,17 +17,24 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Fixed hrefs with "/#" to ensure they work from subpages like /blog
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "About", href: "#about" },
-    { name: "Expertise", href: "#expertise" },
-    { name: "Why Choose Us", href: "#whyus" },
-    { name: "Testimonials", href: "#testimonials" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/#about" },
+    { name: "Expertise", href: "/#expertise" },
+    { name: "Why Us", href: "/#whyus" },
+    { name: "Testimonials", href: "/#testimonials" },
     { name: "Blog", href: "/blog" },
   ];
 
+  // Added missing function that was causing the crash/error
+  const handleEmailRedirect = () => {
+    const email = "team@socialdynamics.cloud";
+    const subject = encodeURIComponent("Project Inquiry - Social Dynamics");
+    const body = encodeURIComponent("Hi Team,\n\nI would like to discuss a project with you.");
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+  };
 
-  
   return (
     <nav
       className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
@@ -75,7 +80,7 @@ const Navbar = () => {
               transition={{ delay: index * 0.1 }}
             >
               <Link
-                href={`${link.href}`}
+                href={link.href}
                 className="text-slate-600 hover:text-slate-900 text-[11px] font-black uppercase tracking-[0.2em] transition-colors relative group"
               >
                 {link.name}
@@ -85,7 +90,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Desktop CTA - Points to #contact section */}
+        {/* Desktop CTA */}
         <motion.div
           className="hidden lg:flex items-center gap-4"
           initial={{ opacity: 0, x: 20 }}
@@ -100,7 +105,7 @@ const Navbar = () => {
           </Link>
         </motion.div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle - Button now fully functional */}
         <div className="lg:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
