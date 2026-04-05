@@ -16,62 +16,56 @@ import {
 
 const allServices = [
   {
-    title: "Full-Stack Web Development",
-    slug: "web-development",
-    description: "High-performance applications built with the MERN stack and Next.js. We prioritize core web vitals, mobile-responsiveness, and conversion-centric UI/UX design.",
-    features: ["Next.js & React", "E-commerce Solutions", "Custom Admin Panels", "API Integration"],
-    icon: <Code2  size={24} />,
+    title: "Performance Digital Marketing",
+    slug: "digital-marketing",
+    description: "Data-driven multi-channel strategies designed to scale your revenue. We manage high-performance Meta and Google Ads campaigns with a strict focus on ROAS and lowering your Customer Acquisition Cost (CAC).",
+    features: ["Paid Search & Social", "Conversion Rate Optimization", "Retargeting Funnels", "Detailed ROI Reporting"],
+    icon: <BarChart3 size={24} />,
+    tag: "ROI Focused"
   },
   {
-    title: "Search Engine Optimization (SEO)",
-    slug: "seo-optimization",
-    description: "Dominate search rankings with data-driven strategies. We focus on commercial keywords, technical SEO audits, and high-quality backlink building to drive organic growth.",
-    features: ["Keyword Research", "On-Page SEO", "Technical Audits", "Link Building"],
-    icon: <Search  size={24} />,
+    title: "Google Business Profile Optimization",
+    slug: "gbp-optimization",
+    description: "Dominate the local 'Map Pack'. We optimize your Google Business Profile to drive consistent phone calls and walk-in traffic through review velocity systems and local keyword dominance.",
+    features: ["Local Map Ranking", "Review Management AI", "Geo-Tagged Content", "Local Citation Building"],
+    icon: <Search size={24} />,
+    tag: "Local Dominance"
   },
   {
-    title: "PPC & Google Ads Management",
-    slug: "ppc-management",
-    description: "Get immediate traffic and ROI with precision-targeted paid search campaigns. We manage your budget to ensure the lowest cost-per-acquisition (CPA).",
-    features: ["Search Ads", "Display Remarketing", "Shopping Ads", "Ad Copy Optimization"],
-    icon: <BarChart3  size={24} />,
+    title: "Social Media Authority & Growth",
+    slug: "social-media",
+    description: "We don't just post; we build brand authority. Our team handles high-end content creation, short-form video strategy, and community management to turn followers into loyal brand advocates.",
+    features: ["Short-form Video Strategy", "Content Calendars", "Engagement Growth", "Influencer Outreach"],
+    icon: <Share2 size={24} />,
+    tag: "Brand Equity"
   },
   {
     title: "AI-Powered Lead Generation",
     slug: "lead-generation",
-    description: "Stop chasing leads and start closing them. We use AI automation to identify and reach out to your ideal customer profile across Meta and Google Ads.",
-    features: ["Meta Ads Management", "Lead Scoring AI", "CRM Integration", "Conversion Tracking"],
-    icon: <Target  size={24} />,
+    description: "Fill your pipeline with high-intent prospects on autopilot. We build automated cold outreach infrastructure and lead-scoring systems that deliver qualified appointments directly to your CRM.",
+    features: ["Automated LinkedIn/Email", "Lead Scoring Systems", "B2B Database Mining", "Appointment Setting"],
+    icon: <Target size={24} />,
+    tag: "Sales Ready"
   },
   {
-    title: "Email & Newsletter Marketing",
-    slug: "email-marketing",
-    description: "Nurture your leads into loyal customers. We design automated email sequences and high-converting newsletters that keep your brand top-of-mind.",
-    features: ["Drip Campaigns", "A/B Subject Testing", "List Segmentation", "Newsletter Design"],
-    icon: <Mail  size={24} />,
+    title: "Conversion-Centric Web Development",
+    slug: "web-development",
+    description: "High-speed, SEO-optimized websites built with Next.js and the MERN stack. We prioritize Core Web Vitals and mobile-first design to ensure your site turns visitors into customers.",
+    features: ["Next.js & React", "High-Speed Architecture", "Mobile-First UI/UX", "SEO Infrastructure"],
+    icon: <Code2 size={24} />,
+    tag: "Tech Excellence"
   },
   {
-    title: "Social Media Management & Growth",
-    slug: "social-media",
-    description: "Build a loyal community. Our management ensures a consistent voice, high-quality visual content, and measurable engagement across all platforms.",
-    features: ["Content Calendar", "Engagement Growth", "Influencer Outreach", "Community Management"],
-    icon: <Share2  size={24} />,
-  },
-  {
-    title: "Online Reputation Management (ORM)",
-    slug: "reputation-management",
-    description: "Protect and enhance your brand's digital image. We help generate positive reviews and manage feedback on Google, Yelp, and industry-specific sites.",
-    features: ["Review Generation", "Crisis Management", "Brand Monitoring", "GBP Review Replies"],
-    icon: <Zap  size={24} />,
-  },
-  {
-    title: "Content Marketing & Copywriting",
-    slug: "content-marketing",
-    description: "Tell your brand story with authority. We create SEO-optimized blog posts, whitepapers, and landing page copy that establishes you as a market leader.",
-    features: ["Blog Strategy", "Ghostwriting", "Sales Copywriting", "Video Scripting"],
-    icon: <Globe  size={24} />,
+    title: "SaaS & Product Engineering",
+    slug: "saas-development",
+    description: "Transform your business logic into a scalable software product. From MVP development to full-scale SaaS platforms, we build robust, secure, and user-friendly applications.",
+    features: ["Custom SaaS Architecture", "Cloud Infrastructure", "API Ecosystems", "Subscription Integration"],
+    icon: <Zap size={24} />,
+    tag: "Scalable Product"
   },
 ];
+
+
 
 const ServicesPage = () => {
   const handleEmailRedirect = (serviceName) => {
