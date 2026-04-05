@@ -3,36 +3,38 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin, 
-  Youtube, 
   ArrowUpRight, 
   Mail, 
-  Phone, 
-  MapPin 
+  MapPin,
+  Globe
 } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const handleEmailRedirect = () => {
+    const email = "team@socialdynamics.cloud";
+    const subject = encodeURIComponent("New Project Inquiry");
+    const body = encodeURIComponent("Hi Social Dynamics team,\n\nI'm interested in starting a project with you. Let's discuss the details.");
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+  };
+
   const footerLinks = {
     Company: [
       { name: "About Us", href: "#about" },
-      { name: "Our Team", href: "#team" },
+      { name: "Our Team", href: "#" },
       { name: "Careers", href: "#" },
       { name: "Contact", href: "#contact" },
     ],
     Services: [
-      { name: "Web Development", href: "#services" },
-      { name: "SEO Optimization", href: "#services" },
-      { name: "Lead Generation", href: "#services" },
-      { name: "Social Marketing", href: "#services" },
+      { name: "Web Development", href: "#expertise" },
+      { name: "SEO Optimization", href: "#expertise" },
+      { name: "Lead Generation", href: "#expertise" },
+      { name: "SaaS Products", href: "#expertise" },
     ],
     Resources: [
-      { name: "Blog", href: "#blog" },
-      { name: "Case Studies", href: "#portfolio" },
+      { name: "Blog", href: "#" },
+      { name: "Case Studies", href: "#" },
       { name: "Testimonials", href: "#testimonials" },
       { name: "FAQ", href: "#" },
     ],
@@ -54,40 +56,45 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex lg:justify-end items-center">
-            <motion.a
-              href="https://wa.me/918977055093"
-              target="_blank"
+            <motion.button
+              onClick={handleEmailRedirect}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 bg-slate-900 text-white rounded-2xl font-bold flex items-center gap-3 shadow-2xl shadow-slate-200"
+              className="px-10 py-5 bg-slate-900 text-white rounded-2xl font-bold flex items-center gap-3 shadow-2xl shadow-slate-200 transition-all hover:bg-slate-800"
             >
               Start Your Project
               <ArrowUpRight size={20} />
-            </motion.a>
+            </motion.button>
           </div>
         </div>
 
         {/* Middle Section: Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-20">
           <div className="col-span-2">
-            <div className="flex items-center gap-2 mb-8">
-              <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl">W</span>
+            <div className="flex items-center gap-3 mb-8">
+              {/* Image Logo to match Navbar */}
+              <div className="relative w-10 h-10 overflow-hidden rounded-xl">
+                <img 
+                  src="/logo.jpg" 
+                  alt="Social Dynamics Logo" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => { e.target.src = "https://via.placeholder.com/40"; }} 
+                />
               </div>
               <span className="text-slate-900 font-bold text-2xl tracking-tight">Social Dynamics</span>
             </div>
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-slate-500">
-                <MapPin size={18} />
+                <MapPin size={18} className="text-slate-400" />
                 <span className="text-sm font-medium">Bangalore & Theni, India</span>
               </div>
               <div className="flex items-center gap-3 text-slate-500">
-                <Phone size={18} />
-                <span className="text-sm font-medium">+91 89770 55093</span>
+                <Mail size={18} className="text-slate-400" />
+                <span className="text-sm font-medium">team@socialdynamics.cloud</span>
               </div>
               <div className="flex items-center gap-3 text-slate-500">
-                <Mail size={18} />
-                <span className="text-sm font-medium">hello@Social Dynamics.com</span>
+                <Globe size={18} className="text-slate-400" />
+                <span className="text-sm font-medium">socialdynamics.cloud</span>
               </div>
             </div>
           </div>
@@ -109,12 +116,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-12 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-8">
-
-          <div className="flex flex-wrap justify-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
-            <span>© {currentYear} Social Dynamics Digital. All Rights Reserved.</span>
-            <a href="#" className="hover:text-slate-900 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-900 transition-colors">Terms of Service</a>
+        <div className="pt-12 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+          <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-4 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+            <span>© {currentYear} Social Dynamics. All Rights Reserved.</span>
+            <a href="/privacy" className="hover:text-slate-900 transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-slate-900 transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

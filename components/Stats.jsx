@@ -50,7 +50,7 @@ const Stats = () => {
       <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:40px_40px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 ">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -61,7 +61,7 @@ const Stats = () => {
               onClick={() => handleWhatsApp(stat.waMsg)}
               className="group cursor-pointer p-6 rounded-[24px] hover:bg-slate-50 transition-all duration-500 border border-transparent hover:border-slate-100"
             >
-              <div className="flex flex-col gap-2">
+              <div className="  flex flex-col gap-2 items-center">
                 {/* Value & Icon */}
                 <div className="flex items-baseline gap-1">
                   <motion.span 

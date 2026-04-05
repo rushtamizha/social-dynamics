@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Send, MessageSquare, User, Briefcase, MessageCircle } from "lucide-react";
+import { motion } from "framer-motion"; // Optimized for latest framer-motion
+import { Send, MessageSquare, User, Briefcase, Mail } from "lucide-react";
 
 const EnquiryForm = () => {
   const [formData, setFormData] = useState({
@@ -16,16 +16,25 @@ const EnquiryForm = () => {
     "SEO Optimization",
     "Lead Generation",
     "Social Media Marketing",
-    "GMB Management",
+    "GBP Management",
     "WhatsApp Marketing",
     "Ai Automations",
   ];
 
-  const handleSendWhatsApp = (e) => {
+  // Updated to Gmail Redirection
+  const handleSendEmail = (e) => {
     e.preventDefault();
-    const phoneNumber = "918977055093";
-    const text = `*New Enquiry from Social Dynamics*%0A%0A*Name:* ${formData.name}%0A*Service:* ${formData.service}%0A*Message:* ${formData.message}`;
-    window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
+    const email = "team@socialdynamics.cloud";
+    const subject = encodeURIComponent(`New Project Enquiry: ${formData.service}`);
+    
+    // Formatting the email body for clarity
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Interested Service: ${formData.service}\n\n` +
+      `Message:\n${formData.message}`
+    );
+
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -49,17 +58,17 @@ const EnquiryForm = () => {
             </h2>
 
             <p className="text-lg text-slate-500 max-w-md leading-relaxed">
-              Fill out the form to start a direct conversation with our specialists via WhatsApp. We typically respond within 2 hours.
+              Fill out the form to start a professional conversation. Our team typically responds via email within 2-4 business hours.
             </p>
 
             <div className="space-y-6 pt-4">
               <div className="flex items-center gap-4 group">
                 <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-900 group-hover:bg-slate-900 group-hover:text-white transition-all">
-                  <MessageCircle size={20} />
+                  <Mail size={20} />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Direct Line</p>
-                  <p className="text-lg font-bold text-slate-900">+91 89770 55093</p>
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Official Support</p>
+                  <p className="text-lg font-bold text-slate-900">team@socialdynamics.cloud</p>
                 </div>
               </div>
             </div>
@@ -71,7 +80,7 @@ const EnquiryForm = () => {
             whileInView={{ opacity: 1, y: 0 }}
             className="bg-white border border-slate-100 p-8 md:p-12 rounded-[40px] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.05)]"
           >
-            <form onSubmit={handleSendWhatsApp} className="space-y-6">
+            <form onSubmit={handleSendEmail} className="space-y-6">
               {/* Name Input */}
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Your Name</label>
@@ -126,11 +135,11 @@ const EnquiryForm = () => {
                 className="w-full py-5 bg-slate-900 text-white rounded-2xl font-bold flex items-center justify-center gap-3 shadow-xl shadow-slate-200 hover:bg-slate-800 transition-all"
               >
                 <Send size={18} />
-                Send via WhatsApp
+                Send Enquiry via Email
               </motion.button>
               
               <p className="text-center text-[10px] text-slate-400 font-medium uppercase tracking-widest">
-                No spam. Direct professional consultation only.
+                Safe & Secure. No marketing spam.
               </p>
             </form>
           </motion.div>

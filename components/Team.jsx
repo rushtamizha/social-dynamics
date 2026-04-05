@@ -43,7 +43,7 @@ const teamMembers = [
 
 const Team = () => {
   return (
-    <section id="team" className=" bg-white overflow-hidden py-30">
+    <section id="team" className="hidden bg-white overflow-hidden py-30">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Header */}
