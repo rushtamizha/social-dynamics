@@ -43,9 +43,9 @@ const expertiseAreas = [
   },
   {
     title: "Business Solutions (SaaS)",
-    description: "custom sass products for your business need ",
+    description: "Custom SaaS products for your business need ",
     icon: <UserCheck size={24}  />,
-    emailSubject: "Product Inquiry: OmniPost Scheduler",
+    emailSubject: "Custom SaaS products for your business need",
   },
   {
     title: "Web Design & Development",

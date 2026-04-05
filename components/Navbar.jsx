@@ -22,19 +22,14 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "#" },
     { name: "About", href: "#about" },
-    { name: "Why Choose Us", href: "#whyus" },
     { name: "Expertise", href: "#expertise" },
+    { name: "Why Choose Us", href: "#whyus" },
     { name: "Testimonials", href: "#testimonials" },
+    { name: "Blog", href: "/blog" },
   ];
 
-  // Updated to Gmail Redirection
-  const gmailRedirect = () => {
-    const email = "team@socialdynamics.cloud";
-    const subject = encodeURIComponent("Project Inquiry - Social Dynamics");
-    const body = encodeURIComponent("Hi Team,\n\nI would like to discuss a project with you.");
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-  };
 
+  
   return (
     <nav
       className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
@@ -44,112 +39,130 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between relative">
+        
         {/* Logo Area */}
         <Link href="/">
-  <motion.div
-    initial={{ opacity: 0, x: -20 }}
-    animate={{ opacity: 1, x: 0 }}
-    whileHover={{ scale: 1.02 }}
-    whileTap={{ scale: 0.98 }}
-    className="flex items-center gap-3 cursor-pointer"
-  >
-    <div className="relative w-12 h-12 flex items-center justify-center overflow-hidden rounded-xl">
-      <img
-        src="/logo.jpg"
-        alt="Social Dynamics Logo"
-        className="w-full h-full object-cover"
-        onError={(e) => {
-          e.target.src = "https://via.placeholder.com/40";
-        }}
-      />
-    </div>
-    <span className="text-slate-900 font-bold text-2xl tracking-tight hidden sm:block">
-      Social Dynamics
-    </span>
-  </motion.div>
-</Link>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex items-center gap-3 cursor-pointer"
+          >
+            <div className="relative w-12 h-12 flex items-center justify-center overflow-hidden rounded-xl shadow-sm">
+              <img
+                src="/logo.jpg"
+                alt="Social Dynamics Logo"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = "https://via.placeholder.com/40";
+                }}
+              />
+            </div>
+            <span className="text-slate-900 font-bold text-2xl tracking-tight hidden sm:block">
+              Social Dynamics
+            </span>
+          </motion.div>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-10">
           {navLinks.map((link, index) => (
-            <motion.a
+            <motion.div
               key={link.name}
-              href={link.href}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="text-slate-600 hover:text-slate-900 transition-colors relative group"
             >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-900 transition-all duration-300 group-hover:w-full" />
-            </motion.a>
+              <Link
+                href={`${link.href}`}
+                className="text-slate-600 hover:text-slate-900 text-[11px] font-black uppercase tracking-[0.2em] transition-colors relative group"
+              >
+                {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-900 transition-all duration-300 group-hover:w-full" />
+              </Link>
+            </motion.div>
           ))}
         </div>
 
-        {/* Desktop CTA */}
+        {/* Desktop CTA - Points to #contact section */}
         <motion.div
           className="hidden lg:flex items-center gap-4"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
         >
-          <button
-            onClick={gmailRedirect}
-            className="flex items-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-full text-sm font-semibold hover:bg-slate-800 transition-all active:scale-95 shadow-lg shadow-slate-200"
-          >
-            <Mail size={18} className="text-slate-400" />
-            Contact Us
-          </button>
+          <Link href="/#contact">
+            <button
+              className="flex items-center gap-2 px-7 py-3 bg-slate-900 text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-slate-800 transition-all active:scale-95 shadow-lg shadow-slate-200"
+            >
+              Contact Us
+            </button>
+          </Link>
         </motion.div>
 
         {/* Mobile Toggle */}
         <div className="lg:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-slate-900 bg-slate-50 rounded-lg border border-slate-200 active:scale-90 transition-all"
+            className="p-3 text-slate-900 bg-slate-50 rounded-xl border border-slate-200 active:scale-90 transition-all"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
-        {/* Box-Style Mobile Drawer */}
+        {/* Mobile Drawer */}
         <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: -10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -10 }}
-              className="absolute top-[160%] right-6 left-6 bg-white border border-slate-200 rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] lg:hidden overflow-hidden z-[101]"
-            >
-              <div className="flex flex-col p-4 gap-1">
-                {navLinks.map((link, index) => (
-                  <motion.a
-                    key={link.name}
-                    href={link.href}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between p-4 text-slate-700 font-semibold hover:bg-slate-50 rounded-xl transition-colors group"
-                  >
-                    {link.name}
-                    <ChevronRight
-                      size={18}
-                      className="text-slate-300 group-hover:text-slate-900 transition-colors"
-                    />
-                  </motion.a>
-                ))}
+            <>
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setMobileMenuOpen(false)}
+                className="fixed inset-0 bg-slate-900/10 backdrop-blur-sm z-[100]"
+              />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                className="absolute top-[110%] right-0 left-0 bg-white border border-slate-100 rounded-[32px] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] lg:hidden overflow-hidden z-[101] mx-4"
+              >
+                <div className="flex flex-col p-6 gap-1">
+                  {navLinks.map((link, index) => (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                    >
+                      <Link
+                        href={link.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center justify-between p-4 text-slate-700 font-bold uppercase tracking-widest text-[10px] hover:bg-slate-50 rounded-2xl transition-all group"
+                      >
+                        {link.name}
+                        <ChevronRight size={16} className="text-slate-300 group-hover:text-slate-900 group-hover:translate-x-1 transition-all" />
+                      </Link>
+                    </motion.div>
+                  ))}
 
-                <div className="mt-4 p-2">
-                  <button
-                    onClick={gmailRedirect}
-                    className="w-full py-4 bg-slate-900 text-white rounded-xl text-md font-bold flex items-center justify-center gap-3 shadow-lg shadow-slate-200 active:scale-[0.98] transition-all"
-                  >
-                    <Mail size={20} className="text-slate-400" />
-                    Email Us
-                  </button>
+                  <div className="mt-4 grid grid-cols-2 gap-3 p-2">
+                    <Link href="/#contact" className="w-full" onClick={() => setMobileMenuOpen(false)}>
+                      <button className="w-full py-4 bg-slate-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-lg shadow-slate-200">
+                        Discuss
+                      </button>
+                    </Link>
+                    <button
+                      onClick={handleEmailRedirect}
+                      className="w-full py-4 bg-slate-50 text-slate-900 border border-slate-200 rounded-2xl text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2"
+                    >
+                      <Mail size={14} />
+                      Email
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>

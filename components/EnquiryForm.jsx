@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion"; // Optimized for latest framer-motion
-import { Send, MessageSquare, User, Briefcase, Mail } from "lucide-react";
+import { Send, MessageSquare, User, Briefcase, Mail, Phone } from "lucide-react";
 
 const EnquiryForm = () => {
   const [formData, setFormData] = useState({
@@ -71,6 +71,18 @@ const EnquiryForm = () => {
                   <p className="text-lg font-bold text-slate-900">team@socialdynamics.cloud</p>
                 </div>
               </div>
+
+               <div className="flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-900 group-hover:bg-slate-900 group-hover:text-white transition-all">
+                  <Phone size={20} />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Official Support</p>
+                  <p className="text-lg font-bold text-slate-900">+1302 5205741</p>
+                </div>
+              </div>
+
+            
             </div>
           </div>
 

@@ -24,7 +24,7 @@ const About = () => {
     {
       icon: <Zap className="text-slate-900" size={20} />,
       title: "Rapid Market Force",
-      desc: "4+ years of industry-leading growth and technical excellence.",
+      desc: "9+ years of industry-leading growth and technical excellence.",
     },
     {
       icon: <ShieldCheck className="text-slate-900" size={20} />,
@@ -69,7 +69,7 @@ const About = () => {
               transition={{ delay: 0.1 }}
               className="text-lg text-slate-500 leading-relaxed max-w-xl"
             >
-              Based in Bangalore, India, we are a leading force in the digital
+              Based in Delaware, US we are a leading force in the digital
               landscape. Our mission is to guide organizations of all sizes
               toward high-performance online strategies, ensuring they maximize
               leads and outperform competitors through innovative AI-powered

@@ -4,27 +4,57 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 
-
 const faqs = [
+  // --- WEB DEVELOPMENT & SAAS ---
   {
-    question: "What industries do you specialize in?",
-    answer: "While we are platform-agnostic, we excel in helping service-based businesses, e-commerce brands, and local enterprises in the real estate, healthcare, and professional services sectors scale their digital legacy."
+    question: "Why do you prioritize the MERN stack and Next.js over platforms like WordPress?",
+    answer: "Next.js and the MERN stack (MongoDB, Express, React, Node.js) allow us to build high-performance, SEO-first applications that are significantly faster and more secure than traditional CMS platforms. For US businesses, this technical edge leads to better user retention and superior rankings on Google."
   },
   {
-    question: "How does the AI-powered lead generation work?",
-    answer: "We use advanced AI algorithms to analyze market trends, automate personalized outreach, and optimize Meta/Google ad spend in real-time, ensuring you get high-intent leads rather than just 'clicks'."
+    question: "Do I own the source code and intellectual property for my project?",
+    answer: "Yes, 100%. Upon project completion and final payment, you hold full ownership of the source code, design assets, and all digital IP. We provide clean, documented codebases that your team can scale or maintain internally if needed."
+  },
+
+  // --- DIGITAL MARKETING & SEO ---
+  {
+    question: "How do you measure the ROI of my marketing campaigns?",
+    answer: "We move beyond 'vanity metrics' like likes or impressions. Our primary KPIs are Conversion Rate, Cost Per Acquisition (CPA), and Return on Ad Spend (ROAS). You will receive transparent, data-driven reports every month that tie directly into your bottom-line revenue."
   },
   {
-    question: "Do you offer custom web development for existing brands?",
-    answer: "Absolutely. We specialize in the MERN stack (MongoDB, Express, React, Node.js) and Next.js to build high-performance, SEO-optimized websites that are tailored to your specific brand identity."
+    question: "What is your approach to Technical SEO for the US market?",
+    answer: "We focus on a 'Performance-First' SEO strategy. This includes optimizing Core Web Vitals, implementing advanced Schema Markup, and building high-authority backlink profiles that establish your brand as a market leader in your specific niche."
+  },
+
+  // --- LOCAL SEO & GOOGLE BUSINESS PROFILE ---
+  {
+    question: "How does Google Business Profile (GBP) management drive local sales?",
+    answer: "For local service-based businesses, the 'Map Pack' is the most valuable real estate on the web. We optimize your profile, manage high-intent reviews, and post consistent updates to ensure you appear in the top 3 results for local searches, where 70% of clicks happen."
+  },
+
+  // --- AI & LEAD GENERATION ---
+  {
+    question: "How can AI Lead Generation reduce my customer acquisition costs?",
+    answer: "Our AI tools identify high-intent prospects and automate personalized outreach at scale. This eliminates 'human friction' at the top of your funnel, allowing your sales team to focus exclusively on closing pre-qualified leads rather than cold calling."
   },
   {
-    question: "How long does it take to see results from SEO?",
-    answer: "SEO is a marathon, not a sprint. Typically, our clients see significant movement in rankings and organic traffic within 3 to 6 months, depending on the competitiveness of their industry."
+    question: "Do you integrate your lead generation systems with existing CRMs?",
+    answer: "Absolutely. We specialize in building seamless integrations with popular CRMs like Salesforce, HubSpot, and Pipedrive, as well as custom-built LeadFlow dashboards to ensure your data flows efficiently from lead capture to final sale."
+  },
+
+  // --- SOCIAL MEDIA & CONTENT ---
+  {
+    question: "What makes your content strategy different from a standard social media agency?",
+    answer: "We don't just post content; we engineer 'Brand Authority.' Every piece of content is designed to solve a specific client pain point or move a prospect further down the sales funnel, ensuring your social presence actually drives business growth."
+  },
+
+  // --- PARTNERSHIP & PROCESS ---
+  {
+    question: "What does the onboarding and discovery process look like?",
+    answer: "It begins with a 15-minute strategy audit where we analyze your current digital presence. From there, we build a custom roadmap with clear milestones, set up dedicated communication channels, and provide a transparent project timeline."
   },
   {
-    question: "What is the best way to start a project with you?",
-    answer: "The best way is to fill out our enquiry form or email us directly at team@socialdynamics.cloud. We usually respond with a project proposal or a request for a brief discovery call within 4 hours."
+    question: "Do you offer white-label services for other digital agencies?",
+    answer: "Yes, we act as a high-end fulfillment partner for several US-based agencies. We provide white-labeled development, SEO, and lead generation services that allow other agencies to scale their offerings without increasing their overhead."
   }
 ];
 

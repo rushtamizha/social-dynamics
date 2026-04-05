@@ -7,7 +7,7 @@ import { Plus, Clock, CheckCircle, Users } from "lucide-react";
 const stats = [
   {
     label: "Years of Excellence",
-    value: "4",
+    value: "9",
     suffix: "+",
     icon: <Plus size={20} className="text-slate-400" />,
     description: "Proven industry track record.",
@@ -15,7 +15,7 @@ const stats = [
   },
   {
     label: "Global Clients",
-    value: "80",
+    value: "250",
     suffix: "+",
     icon: <Users size={20} className="text-slate-400" />,
     description: "Trusted by diverse businesses.",
@@ -23,7 +23,7 @@ const stats = [
   },
   {
     label: "Projects Delivered",
-    value: "150",
+    value: "430",
     suffix: "+",
     icon: <CheckCircle size={20} className="text-slate-400" />,
     description: "Successful digital deployments.",
@@ -31,7 +31,7 @@ const stats = [
   },
   {
     label: "Hours of Support",
-    value: "19",
+    value: "160",
     suffix: "K+",
     icon: <Clock size={20} className="text-slate-400" />,
     description: "Dedicated technical assistance.",

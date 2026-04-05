@@ -356,7 +356,7 @@ const Hero = () => {
               variants={itemVariants}
               className="flex flex-wrap items-center gap-6 mt-4"
             >
-              {["4+ Years Experience", "80+ Clients", "150+ Projects"].map(
+              {["9+ Years Experience", "250+ Clients", "450+ Projects"].map(
                 (text, i) => (
                   <div
                     key={i}

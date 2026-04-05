@@ -6,7 +6,8 @@ import {
   ArrowUpRight, 
   Mail, 
   MapPin,
-  Globe
+  Globe,
+  Phone
 } from "lucide-react";
 
 const Footer = () => {
@@ -21,10 +22,12 @@ const Footer = () => {
 
   const footerLinks = {
     Company: [
-      { name: "About Us", href: "#about" },
-      { name: "Our Team", href: "#" },
-      { name: "Careers", href: "#" },
-      { name: "Contact", href: "#contact" },
+      { name: "Home", href: "#" },
+      { name: "About", href: "#about" },
+      { name: "Expertise", href: "#expertise" },
+      { name: "Why Choose Us", href: "#whyus" },
+      { name: "Testimonials", href: "#testimonials" },
+      { name: "Blog", href: "#blog" },
     ],
     Services: [
       { name: "Web Development", href: "#expertise" },
@@ -86,7 +89,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-slate-500">
                 <MapPin size={18} className="text-slate-400" />
-                <span className="text-sm font-medium">Bangalore & Theni, India</span>
+                <span className="text-sm font-medium">Delaware, US</span>
               </div>
               <div className="flex items-center gap-3 text-slate-500">
                 <Mail size={18} className="text-slate-400" />
@@ -95,6 +98,10 @@ const Footer = () => {
               <div className="flex items-center gap-3 text-slate-500">
                 <Globe size={18} className="text-slate-400" />
                 <span className="text-sm font-medium">socialdynamics.cloud</span>
+              </div>
+              <div className="flex items-center gap-3 text-slate-500">
+                <Phone size={18} className="text-slate-400" />
+                <span className="text-sm font-medium">+ 1302 5205741</span>
               </div>
             </div>
           </div>
