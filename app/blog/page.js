@@ -22,7 +22,6 @@ const BlogArchive = () => {
 
   return (
     <main className="bg-white min-h-screen">
-      <Navbar />
 
       {/* Hero Header */}
       <section className="pt-32 pb-20 bg-slate-50 border-b border-slate-100">
