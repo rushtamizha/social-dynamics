@@ -23,23 +23,23 @@ const Footer = () => {
   const footerLinks = {
     Company: [
       { name: "Home", href: "#" },
-      { name: "About", href: "#about" },
-      { name: "Expertise", href: "#expertise" },
-      { name: "Why Choose Us", href: "#whyus" },
-      { name: "Testimonials", href: "#testimonials" },
-      { name: "Blog", href: "#blog" },
+      { name: "About", href: "/#about" },
+      { name: "Expertise", href: "/#expertise" },
+      { name: "Why Choose Us", href: "/#whyus" },
+      { name: "Testimonials", href: "/#testimonials" },
+      { name: "Blog", href: "/blog" },
     ],
     Services: [
-      { name: "Web Development", href: "#expertise" },
-      { name: "SEO Optimization", href: "#expertise" },
-      { name: "Lead Generation", href: "#expertise" },
-      { name: "SaaS Products", href: "#expertise" },
+      { name: "Web Development", href: "/#expertise" },
+      { name: "SEO Optimization", href: "/#expertise" },
+      { name: "Lead Generation", href: "/#expertise" },
+      { name: "SaaS Products", href: "/#expertise" },
     ],
     Resources: [
-      { name: "Blog", href: "#" },
-      { name: "Case Studies", href: "#" },
-      { name: "Testimonials", href: "#testimonials" },
-      { name: "FAQ", href: "#" },
+      { name: "Blog", href: "/blog" },
+      { name: "Case Studies", href: "/blog" },
+      { name: "Testimonials", href: "/#testimonials" },
+      { name: "FAQ", href: "/#faq" },
     ],
   };
 
