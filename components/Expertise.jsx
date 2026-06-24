@@ -10,12 +10,10 @@ import {
   MapPin,
   Share2,
   UserCheck,
-  Search,
-  Mail, // Changed from MessageCircle
-  LayoutGrid, // For SaaS products
   ArrowUpRight,
   ArrowLeft,
   ArrowRight,
+  MessageSquare,
 } from "lucide-react";
 
 import "swiper/css";
@@ -27,40 +25,41 @@ const expertiseAreas = [
     title: "Lead Generation",
     description: "Fuel your growth with a strategic influx of quality leads, making us your trusted partner for digital success.",
     icon: <Target size={24} />,
-    emailSubject: "Inquiry: Lead Generation Services",
+    whatsappMessage: "Hi Social Dynamics team, I want to learn more about your Lead Generation services and how to grow my business profile.",
   },
   {
     title: "GBP Optimization",
     description: "Boost local visibility and stand out to potential customers with expert Google My Business management.",
     icon: <MapPin size={24} />,
-    emailSubject: "Inquiry: GBP Optimization",
+    whatsappMessage: "Hi Social Dynamics team, I need help with GBP Optimization to scale my local search visibility.",
   },
   {
     title: "Social Media Marketing",
     description: "Harness the power of social platforms with high-impact strategies that drive measurable results.",
     icon: <Share2 size={24} />,
-    emailSubject: "Inquiry: Social Media Marketing",
+    whatsappMessage: "Hi Social Dynamics team, I'm interested in your Social Media Marketing plans to drive better brand engagement.",
   },
   {
     title: "Business Solutions (SaaS)",
-    description: "Custom SaaS products for your business need ",
+    description: "Custom SaaS products engineered from the ground up to match your core organizational needs.",
     icon: <UserCheck size={24}  />,
-    emailSubject: "Custom SaaS products for your business need",
+    whatsappMessage: "Hi Social Dynamics team, I would like to discuss building a Custom SaaS Business Solution.",
   },
   {
     title: "Web Design & Development",
     description: "Enhance your presence with expert MERN & Next.js solutions tailored to captivate and convert visitors.",
     icon: <Code2 size={24} />,
-    emailSubject: "Inquiry: Web Design & Development",
+    whatsappMessage: "Hi Social Dynamics team, let's talk about Web Design & Development for my brand using Next.js/MERN stack.",
   },
 ];
 
 const Expertise = () => {
-  const handleEmail = (subject) => {
-    const email = "team@socialdynamics.cloud";
-    const formattedSubject = encodeURIComponent(subject);
-    const body = encodeURIComponent("Hi Team,\n\nI'm interested in this specific solution. Please provide more details on how we can get started.");
-    window.location.href = `mailto:${email}?subject=${formattedSubject}&body=${body}`;
+  // Central WhatsApp Router
+  const handleWhatsAppRedirect = (customMessage) => {
+    // Replace with your company's official phone number (include country code, omit spaces/plus sign)
+    const phoneNumber = "16474991118"; 
+    const encodedText = encodeURIComponent(customMessage);
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -116,7 +115,7 @@ const Expertise = () => {
             {expertiseAreas.map((item, index) => (
               <SwiperSlide key={index} className="h-auto">
                 <motion.div
-                  onClick={() => handleEmail(item.emailSubject)}
+                  onClick={() => handleWhatsAppRedirect(item.whatsappMessage)}
                   whileHover="hovered"
                   initial={false}
                   className="h-full group p-10 bg-white border border-slate-100 rounded-[40px] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 cursor-pointer flex flex-col justify-between min-h-[420px]"
@@ -137,12 +136,15 @@ const Expertise = () => {
                   </div>
 
                   <div className="mt-10 pt-8 border-t border-slate-50 flex items-center justify-between">
-                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 group-hover:text-slate-900 transition-colors">
-                      Get Started
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <MessageSquare size={16} className="text-slate-400 group-hover:text-emerald-600 transition-colors" />
+                      <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 group-hover:text-slate-900 transition-colors">
+                        Chat on WhatsApp
+                      </span>
+                    </div>
                     <motion.div
                       variants={{
-                        hovered: { rotate: 45, backgroundColor: "#0f172a", color: "#ffffff", borderColor: "#0f172a" }
+                        hovered: { rotate: 45, backgroundColor: "#059669", color: "#ffffff", borderColor: "#059669" }
                       }}
                       className="w-12 h-12 rounded-full border border-slate-100 flex items-center justify-center text-slate-900 transition-all"
                     >
@@ -166,7 +168,7 @@ const Expertise = () => {
         </div>
 
         {/* Pagination container */}
-        <div className="exp-pagination flex justify-center items-center h-10 mt-10" />
+        <div className="exp-pagination hidden flex justify-center items-center h-10 mt-10" />
       </div>
 
       <style jsx global>{`

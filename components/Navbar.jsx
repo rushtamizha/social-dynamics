@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Mail, ChevronRight } from "lucide-react";
+import { Menu, X, Mail, ChevronRight, MessageSquare } from "lucide-react";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -21,7 +21,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/#about" },
-    { name: "Expertise", href: "/#expertise" },
+    { name: "Expertise", href: "/services" },
     { name: "Why Us", href: "/#whyus" },
     { name: "Testimonials", href: "/#testimonials" },
     { name: "Blog", href: "/blog" },
@@ -35,12 +35,20 @@ const Navbar = () => {
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
   };
 
+  // WhatsApp Redirect Function
+  const handleWhatsAppRedirect = () => {
+    // Replace with your actual company phone number (include country code, no + or spaces)
+    const phoneNumber = "16474991118"; 
+    const text = encodeURIComponent("Hi Social Dynamics team, I would like to discuss a project with you.");
+    window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <nav
       className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
         isScrolled
           ? "py-4 bg-white/90 backdrop-blur-xl border-b border-slate-200/50 shadow-sm"
-          : "py-6 bg-transparent"
+          : "py-6 bg-transparent "
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between relative">
@@ -60,7 +68,7 @@ const Navbar = () => {
                 alt="Social Dynamics Logo"
                 className="w-full h-full object-cover"
                 onError={(e) => {
-                  e.target.src = "https://via.placeholder.com/40";
+                  (e.target );
                 }}
               />
             </div>
@@ -119,18 +127,11 @@ const Navbar = () => {
         <AnimatePresence>
           {mobileMenuOpen && (
             <>
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setMobileMenuOpen(false)}
-                className="fixed inset-0 bg-slate-900/10 backdrop-blur-sm z-[100]"
-              />
               <motion.div
                 initial={{ opacity: 0, scale: 0.95, y: -10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                className="absolute top-[110%] right-0 left-0 bg-white border border-slate-100 rounded-[32px] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] lg:hidden overflow-hidden z-[101] mx-4"
+                className="absolute top-[160%] right-0 left-0 bg-white border border-slate-100 rounded-[32px] shadow-sm lg:hidden overflow-hidden z-[101] mx-4"
               >
                 <div className="flex flex-col p-6 gap-1">
                   {navLinks.map((link, index) => (
@@ -152,11 +153,18 @@ const Navbar = () => {
                   ))}
 
                   <div className="mt-4 grid grid-cols-2 gap-3 p-2">
-                    <Link href="/#contact" className="w-full" onClick={() => setMobileMenuOpen(false)}>
-                      <button className="w-full py-4 bg-slate-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-lg shadow-slate-200">
-                        Discuss
-                      </button>
-                    </Link>
+                    {/* Updated WhatsApp Button */}
+                    <button 
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        handleWhatsAppRedirect();
+                      }}
+                      className="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-emerald-100 transition-all"
+                    >
+                      <MessageSquare size={14} />
+                      WhatsApp
+                    </button>
+                    
                     <button
                       onClick={handleEmailRedirect}
                       className="w-full py-4 bg-slate-50 text-slate-900 border border-slate-200 rounded-2xl text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2"

@@ -2,10 +2,10 @@
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, ShieldCheck, Zap, Target } from "lucide-react";
+import { ArrowRight, Mail, ShieldCheck, Zap, Target, MessageSquare } from "lucide-react";
 
 const About = () => {
-  // Updated to Gmail Redirection
+  // Gmail Redirection
   const handleEmail = (subject) => {
     const email = "team@socialdynamics.cloud";
     const formattedSubject = encodeURIComponent(subject);
@@ -13,6 +13,16 @@ const About = () => {
       "Hi Team,\n\nI'm interested in learning more about your digital marketing services. Let's discuss a project.",
     );
     window.location.href = `mailto:${email}?subject=${formattedSubject}&body=${body}`;
+  };
+
+  // WhatsApp Redirection
+  const handleWhatsApp = () => {
+    // Replace with your company's official phone number (include country code, omit spaces/plus sign)
+    const phoneNumber = "16474991118";
+    const message = encodeURIComponent(
+      "Hi Social Dynamics team, I'm checking out your about section and would love to get more details on your digital marketing services.",
+    );
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank", "noopener,noreferrer");
   };
 
   const pillars = [
@@ -69,7 +79,7 @@ const About = () => {
               transition={{ delay: 0.1 }}
               className="text-lg text-slate-500 leading-relaxed max-w-xl"
             >
-              Based in Delaware, US we are a leading force in the digital
+              Based in Wilmington, US we are a leading force in the digital
               landscape. Our mission is to guide organizations of all sizes
               toward high-performance online strategies, ensuring they maximize
               leads and outperform competitors through innovative AI-powered
@@ -81,11 +91,11 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row gap-4"
             >
               <button
                 onClick={() => handleEmail("Quote Request - Social Dynamics")}
-                className="group flex items-center gap-3 px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold transition-all hover:bg-slate-800 active:scale-95"
+                className="group flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold transition-all hover:bg-slate-800 active:scale-95 w-full sm:w-auto"
               >
                 Get Free Quote
                 <Mail
@@ -94,12 +104,15 @@ const About = () => {
                 />
               </button>
 
-              <Link href="/services" className="contents">
-                <button className="flex items-center gap-2 px-8 py-4 border-2 border-slate-200 text-slate-900 rounded-2xl font-bold hover:border-slate-500 transition-all bg-slate-50 justify-center duration-500 w-full sm:w-auto">
-                  Know More
-                  <ArrowRight size={18} />
-                </button>
-              </Link>
+              {/* Functional WhatsApp Integration */}
+              <button
+                onClick={handleWhatsApp}
+                className="group flex items-center gap-3 px-8 py-4 border-2 border-slate-200 text-white rounded-2xl font-bold hover:border-emerald-200 transition-all bg-emerald-600 justify-center duration-300 w-full sm:w-auto active:scale-95 shadow-sm"
+              >
+                <MessageSquare size={18} className="text-white" />
+                WhatsApp Us
+                <ArrowRight size={18} className="text-white group-hover:translate-x-1 transition-transform" />
+              </button>
             </motion.div>
           </div>
 

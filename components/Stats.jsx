@@ -41,7 +41,7 @@ const stats = [
 
 const Stats = () => {
   const handleWhatsApp = (msg) => {
-    window.open(`https://wa.me/918977055093?text=${encodeURIComponent(msg)}`, "_blank");
+    window.open(`https://wa.me/9116474991118?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
   return (
