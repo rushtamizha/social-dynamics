@@ -47,8 +47,8 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
         isScrolled
-          ? "py-4 bg-white/90 backdrop-blur-xl border-b border-slate-200/50 shadow-sm"
-          : "py-6 bg-transparent "
+          ? "py-2 bg-white/90 backdrop-blur-xl border-b border-slate-200/50 shadow-sm"
+          : "py-2 bg-transparent "
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between relative">
@@ -62,7 +62,7 @@ const Navbar = () => {
             whileTap={{ scale: 0.98 }}
             className="flex items-center gap-3 cursor-pointer"
           >
-            <div className="relative w-12 h-12 flex items-center justify-center overflow-hidden rounded-xl shadow-sm">
+            <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden rounded-xl shadow-sm">
               <img
                 src="/logo.jpg"
                 alt="Social Dynamics Logo"
@@ -72,7 +72,7 @@ const Navbar = () => {
                 }}
               />
             </div>
-            <span className="text-slate-900 font-bold text-2xl tracking-tight hidden sm:block">
+            <span className="text-slate-900 font-bold text-xl tracking-tight hidden sm:block">
               Social Dynamics
             </span>
           </motion.div>
@@ -119,7 +119,7 @@ const Navbar = () => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-3 text-slate-900 bg-slate-50 rounded-xl border border-slate-200 active:scale-90 transition-all"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileMenuOpen ? <X size={14} /> : <Menu size={14} />}
           </button>
         </div>
 

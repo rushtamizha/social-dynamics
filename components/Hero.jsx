@@ -89,11 +89,11 @@ const Hero = () => {
 
             <motion.h1
               variants={itemVariants}
-              className="text-6xl md:text-7xl lg:text-8xl font-bold text-slate-900 leading-[1.1] tracking-tight"
+              className="text-5xl md:text-6xl lg:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tight"
             >
-              Scale your <br />
+              Your Trusted <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500">
-                Digital Legacy.
+                Digital Marketing Partner.
               </span>
             </motion.h1>
 

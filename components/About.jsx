@@ -66,9 +66,9 @@ const About = () => {
               viewport={{ once: true }}
               className="text-4xl md:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tight"
             >
-              Your Trusted Digital <br />
-              <span className="text-slate-400 font-medium italic">
-                Marketing Partner.
+              Scale Your  <br />
+              <span className="text-slate-400 font-medium ">
+                Digital Legacy.
               </span>
             </motion.h2>
 

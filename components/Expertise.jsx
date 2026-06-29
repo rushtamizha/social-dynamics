@@ -63,7 +63,7 @@ const Expertise = () => {
   };
 
   return (
-    <section id="expertise" className="py-24 bg-[#FFFFFF] overflow-hidden">
+    <section id="expertise" className="pt-24 bg-[#FFFFFF] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header Section */}
         <div className="flex flex-col items-center text-center mb-20">
@@ -166,9 +166,6 @@ const Expertise = () => {
             </button>
           </div>
         </div>
-
-        {/* Pagination container */}
-        <div className="exp-pagination hidden flex justify-center items-center h-10 mt-10" />
       </div>
 
       <style jsx global>{`
